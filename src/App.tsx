@@ -450,7 +450,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#231F1D]">
       {/* Strict 3-Zone Top Bar Contract + Live Scroll Progress Indicator */}
-      <header className="sticky top-0 z-40 flex items-center justify-between gap-8 px-6 lg:px-12 py-4 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3E7E1] relative">
+      <header className="sticky top-0 z-40 flex items-center justify-between gap-3 sm:gap-8 px-4 sm:px-6 lg:px-12 py-3.5 sm:py-4 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3E7E1] relative">
         {/* Live Scroll Progress Bar */}
         <motion.div
           style={{ scaleX: smoothScrollProgress }}
@@ -461,7 +461,7 @@ export default function App() {
         <button
           type="button"
           onClick={() => navigateToLandingSection()}
-          className="text-2xl font-display font-semibold tracking-tight text-[#231F1D] whitespace-nowrap shrink-0 text-left cursor-pointer"
+          className="text-xl sm:text-2xl font-display font-semibold tracking-tight text-[#231F1D] whitespace-nowrap shrink-0 text-left cursor-pointer"
         >
           Garden House Cafe
         </button>
@@ -521,16 +521,68 @@ export default function App() {
             }
             transition={{ duration: 0.42, ease: 'easeOut' }}
             onClick={() => setIsCartOpen(true)}
-            className="px-4 py-2 text-xs font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors whitespace-nowrap shrink-0 flex items-center gap-2 shadow-xs cursor-pointer"
+            className="px-3 sm:px-4 py-2 text-xs font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5 sm:gap-2 shadow-xs cursor-pointer"
           >
-            <ShoppingBag className="w-3.5 h-3.5" />
+            <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
             <span>
               Order Bag ({totalCartCount}){' '}
-              {totalCartAmount > 0 ? `· dh ${totalCartAmount.toFixed(0)}` : ''}
+              <span className="hidden xs:inline sm:inline">
+                {totalCartAmount > 0 ? `· dh ${totalCartAmount.toFixed(0)}` : ''}
+              </span>
             </span>
           </motion.button>
         </div>
       </header>
+
+      {/* Mobile Touch-Friendly Quick Navigation Bar (Visible on Smartphones < 768px) */}
+      <nav
+        aria-label="Mobile quick navigation"
+        className="md:hidden sticky top-[57px] z-30 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3E7E1] px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar"
+      >
+        <button
+          type="button"
+          onClick={() => navigateToLandingSection()}
+          className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+            activePage === 'landing'
+              ? 'bg-[#231F1D] text-white'
+              : 'bg-white text-[#5C645A] border border-[#E3E7E1]'
+          }`}
+        >
+          Home
+        </button>
+        <button
+          type="button"
+          onClick={() => openFullMenuPage('All Menu')}
+          className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-colors cursor-pointer ${
+            activePage === 'menu'
+              ? 'bg-[#5E7159] text-white'
+              : 'bg-[#EFF2EE] text-[#5E7159] border border-[#5E7159]/30'
+          }`}
+        >
+          Full Menu (54)
+        </button>
+        <button
+          type="button"
+          onClick={() => navigateToLandingSection('about-amenities')}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-[#5C645A] border border-[#E3E7E1] whitespace-nowrap shrink-0 cursor-pointer"
+        >
+          About & Amenities
+        </button>
+        <button
+          type="button"
+          onClick={() => navigateToLandingSection('reviews-hours')}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-[#5C645A] border border-[#E3E7E1] whitespace-nowrap shrink-0 cursor-pointer"
+        >
+          Reviews & Hours
+        </button>
+        <button
+          type="button"
+          onClick={() => navigateToLandingSection('reserve-visit')}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-[#5C645A] border border-[#E3E7E1] whitespace-nowrap shrink-0 cursor-pointer"
+        >
+          Reserve & Visit
+        </button>
+      </nav>
 
       {/* Fly-to-Bag Parabolic Arc Particles */}
       <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden" aria-hidden="true">
@@ -593,10 +645,41 @@ export default function App() {
             transition={{ duration: 0.22 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Scroll back to top"
-            className="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-full bg-[#231F1D] hover:bg-[#5E7159] text-white shadow-lg border border-[#E3E7E1]/30 flex items-center justify-center transition-colors cursor-pointer"
+            className={`fixed left-4 sm:left-5 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#231F1D] hover:bg-[#5E7159] text-white shadow-lg border border-[#E3E7E1]/30 flex items-center justify-center transition-all cursor-pointer ${
+              totalCartCount > 0 ? 'bottom-20 md:bottom-5' : 'bottom-5'
+            }`}
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Floating Bottom Order Bag Checkout Bar */}
+      <AnimatePresence>
+        {totalCartCount > 0 && !isCartOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 24 }}
+            transition={{ duration: 0.22 }}
+            className="md:hidden fixed bottom-3 left-3 right-3 z-40"
+          >
+            <button
+              type="button"
+              onClick={() => setIsCartOpen(true)}
+              className="w-full py-3 px-4 rounded-xl bg-[#231F1D] text-white shadow-xl border border-[#5E7159] flex items-center justify-between gap-3 cursor-pointer"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-[#5E7159] text-white text-xs font-mono-tabular font-semibold flex items-center justify-center">
+                  {totalCartCount}
+                </span>
+                <span className="text-xs font-semibold">View Order Bag & Checkout</span>
+              </div>
+              <span className="text-xs font-mono-tabular font-semibold text-[#E8C59B]">
+                dh {totalCartAmount.toFixed(2)} →
+              </span>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -608,7 +691,9 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.18 }}
-            className="fixed bottom-5 right-5 z-50 max-w-sm bg-[#231F1D] text-white px-4 py-3 rounded-lg shadow-xl border border-[#5E7159]/40 flex items-center gap-2.5 text-xs"
+            className={`fixed right-4 left-4 sm:left-auto sm:right-5 z-50 sm:max-w-sm bg-[#231F1D] text-white px-4 py-3 rounded-lg shadow-xl border border-[#5E7159]/40 flex items-center gap-2.5 text-xs ${
+              totalCartCount > 0 ? 'bottom-20 md:bottom-5' : 'bottom-5'
+            }`}
           >
             <CheckCircle2 className="w-4 h-4 text-[#9AB589] shrink-0" />
             <span>{toastMessage}</span>
@@ -619,7 +704,7 @@ export default function App() {
       <main id="top" className="flex-1">
         {activePage === 'menu' ? (
           /* DEDICATED FULL 54-ITEM MENU PAGE */
-          <section className="max-w-7xl mx-auto px-6 lg:px-12 py-10 space-y-8">
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-10 space-y-6 sm:space-y-8">
             {/* Top Breadcrumb & Menu Page Banner */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -802,7 +887,7 @@ export default function App() {
             {/* SECTION 1B: RESTAURANT SIGNATURE "AT A GLANCE" & VENUE UTILITY STRIP */}
             <section
               id="glance-favorites"
-              className="max-w-7xl mx-auto px-6 lg:px-12 py-12 border-b border-[#E3E7E1] space-y-8"
+              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-12 border-b border-[#E3E7E1] space-y-6 sm:space-y-8"
             >
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -900,7 +985,7 @@ export default function App() {
             {/* SECTION 2 (LANDING PAGE): CURATED 6-ITEM SIGNATURE PREVIEW + FULL MENU PAGE GATEWAY */}
             <section
               id="menu"
-              className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-b border-[#E3E7E1] space-y-10"
+              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 border-b border-[#E3E7E1] space-y-8 sm:space-y-10"
             >
               <motion.div
                 initial={{ opacity: 0, y: 26 }}
@@ -1016,16 +1101,16 @@ export default function App() {
         {/* SECTION 3: ABOUT US & COMPLETE A-TO-Z AMENITIES DIRECTORY */}
         <section
           id="about-amenities"
-          className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-b border-[#E3E7E1] space-y-12"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 border-b border-[#E3E7E1] space-y-10 sm:space-y-12"
         >
           {/* Editorial Story Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6 space-y-5 flex flex-col justify-between bg-white border border-[#E3E7E1] rounded-xl p-8"
+              className="lg:col-span-6 space-y-5 flex flex-col justify-between bg-white border border-[#E3E7E1] rounded-xl p-5 sm:p-8"
             >
               <div className="space-y-4">
                 <p className="text-xs text-[#5E7159] font-medium">
@@ -1199,7 +1284,7 @@ export default function App() {
         {/* SECTION 4: GOOGLE REVIEWS (4.9★ · 541) & INTERACTIVE POPULAR TIMES */}
         <section
           id="reviews-hours"
-          className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-b border-[#E3E7E1] space-y-12"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 border-b border-[#E3E7E1] space-y-10 sm:space-y-12"
         >
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -1394,7 +1479,7 @@ export default function App() {
                 </div>
 
                 {/* Day Selector Tabs */}
-                <div className="flex items-center gap-1 bg-[#FAF8F5] p-1 rounded-lg border border-[#E3E7E1]">
+                <div className="flex items-center gap-1 bg-[#FAF8F5] p-1 rounded-lg border border-[#E3E7E1] overflow-x-auto no-scrollbar max-w-full">
                   {(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as DayKey[]).map((day) => (
                     <button
                       key={day}
@@ -1510,7 +1595,7 @@ export default function App() {
         {/* SECTION 5: INTERACTIVE PHOTO & VIDEO GALLERY */}
         <section
           id="gallery"
-          className="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-b border-[#E3E7E1] space-y-8"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 border-b border-[#E3E7E1] space-y-8"
         >
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -1604,7 +1689,7 @@ export default function App() {
         {/* SECTION 6: TABLE RESERVATION BOOKING FORM & LOCATION GUIDE */}
         <section
           id="reserve-visit"
-          className="max-w-7xl mx-auto px-6 lg:px-12 py-16 space-y-16"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-16 space-y-12 sm:space-y-16"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             {/* Left: Table Reservation Form */}
@@ -2004,7 +2089,7 @@ export default function App() {
       </main>
 
       {/* Quiet Editorial Footer */}
-      <footer className="bg-white border-t border-[#E3E7E1] py-12 px-6 lg:px-12">
+      <footer className="bg-white border-t border-[#E3E7E1] py-10 sm:py-12 pb-24 md:pb-12 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex items-center gap-4">
             <img

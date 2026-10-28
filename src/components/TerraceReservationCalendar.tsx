@@ -410,7 +410,7 @@ export const TerraceReservationCalendar: React.FC<TerraceReservationCalendarProp
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-2"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-2"
           >
             {activeDateSlots.map((slot) => {
               const isSelected = selectedTime === slot.time;

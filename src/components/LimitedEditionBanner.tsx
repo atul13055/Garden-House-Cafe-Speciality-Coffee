@@ -290,8 +290,8 @@ export const LimitedEditionBanner: React.FC<LimitedEditionBannerProps> = ({
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 sm:py-5 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-5 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-center">
           {/* Left Column (5 cols): Seasonal Drop Identity + Live Countdown Timer */}
           <div className="lg:col-span-5 space-y-2.5">
             <div className="flex flex-wrap items-center gap-2">
@@ -354,9 +354,9 @@ export const LimitedEditionBanner: React.FC<LimitedEditionBannerProps> = ({
           </div>
 
           {/* Right Column (7 cols): Interactive Seasonal Item Selector & Instant Order Card */}
-          <div className="lg:col-span-7 flex flex-col sm:flex-row items-stretch gap-3 bg-white/95 text-[#231F1D] rounded-xl p-3 sm:p-3.5 border border-[#E3E7E1] shadow-lg">
+          <div className="lg:col-span-7 flex flex-col sm:flex-row items-stretch gap-3 bg-white/95 text-[#231F1D] rounded-xl p-3 sm:p-3.5 border border-[#E3E7E1] shadow-lg overflow-hidden">
             {/* Seasonal Item Selector Tabs (3 Seasonal Items) */}
-            <div className="flex sm:flex-col justify-between gap-1.5 sm:w-44 shrink-0 border-b sm:border-b-0 sm:border-r border-[#E3E7E1] pb-2.5 sm:pb-0 sm:pr-3">
+            <div className="flex sm:flex-col justify-between gap-1.5 sm:w-44 shrink-0 border-b sm:border-b-0 sm:border-r border-[#E3E7E1] pb-2.5 sm:pb-0 sm:pr-3 overflow-x-auto no-scrollbar">
               <p className="hidden sm:flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[#5E7159] px-1">
                 <Sparkles className="w-3 h-3 text-[#B87D4B]" />
                 <span>3 Seasonal Drops</span>
@@ -424,11 +424,11 @@ export const LimitedEditionBanner: React.FC<LimitedEditionBannerProps> = ({
                 </motion.div>
               </AnimatePresence>
 
-              <div className="pt-2.5 mt-2 border-t border-[#E3E7E1] flex flex-wrap items-center justify-between gap-2">
+              <div className="pt-2.5 mt-2 border-t border-[#E3E7E1] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <button
                   type="button"
                   onClick={onExploreFullMenu}
-                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#5E7159] hover:text-[#231F1D] transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center sm:justify-start gap-1 text-[11px] font-semibold text-[#5E7159] hover:text-[#231F1D] transition-colors cursor-pointer py-1 sm:py-0"
                 >
                   <span>View All 54 Menu Items</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -437,7 +437,7 @@ export const LimitedEditionBanner: React.FC<LimitedEditionBannerProps> = ({
                 <button
                   type="button"
                   onClick={(e) => onAddToCart(activeItem, e)}
-                  className="px-3.5 py-1.5 rounded-lg bg-[#5E7159] hover:bg-[#4D5E49] text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 shadow-2xs cursor-pointer"
+                  className="w-full sm:w-auto px-3.5 py-2 sm:py-1.5 rounded-lg bg-[#5E7159] hover:bg-[#4D5E49] text-white text-xs font-semibold transition-colors inline-flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Limited Drop · dh {activeItem.price.toFixed(2)}</span>

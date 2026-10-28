@@ -180,22 +180,22 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-10 lg:pt-12 lg:pb-14">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-6 pb-8 sm:pt-8 sm:pb-10 lg:pt-12 lg:pb-14">
         {/* TOP RESTAURANT IDENTITY BANNER WITH OFFICIAL LOGO */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 mb-8 border-b border-[#E3E7E1]"
+          className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6 pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-[#E3E7E1]"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
             {/* Prominent Official Logo Medallion */}
             <motion.div
               initial={{ scale: 0.88, opacity: 0, rotate: -4 }}
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ scale: 1.04, rotate: 1 }}
-              className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border-2 border-[#748470]/35 p-2 shadow-md shrink-0 flex items-center justify-center group"
+              className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-white border-2 border-[#748470]/35 p-2 shadow-md shrink-0 flex items-center justify-center group"
             >
               <img
                 src={VENUE_INFO.logoPath}
@@ -207,7 +207,7 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
 
             {/* Brand Title & Verified Abu Dhabi Sanctuary Credentials */}
             <div className="space-y-1.5">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#5E7159] font-medium">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#5E7159] font-medium">
                 <span>THE ARC TOWER · 5TH FLOOR</span>
                 <span aria-hidden="true">·</span>
                 <span>AL REEM ISLAND, ABU DHABI</span>
@@ -216,13 +216,13 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
               </div>
 
               <h1
-                className="font-display font-semibold text-[#231F1D] tracking-tight leading-[1.04]"
-                style={{ fontSize: 'clamp(2.35rem, 4.3vw, 3.85rem)', textWrap: 'balance' }}
+                className="font-display font-semibold text-[#231F1D] tracking-tight leading-[1.06]"
+                style={{ fontSize: 'clamp(2rem, 4.3vw, 3.85rem)', textWrap: 'balance' }}
               >
                 Garden House Cafe — <span className="italic font-normal text-[#5E7159]">Speciality Coffee</span>
               </h1>
 
-              <div className="flex flex-wrap items-center gap-2.5 text-xs text-[#5C645A] pt-0.5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-[#5C645A] pt-0.5">
                 <span className="inline-flex items-center gap-1 font-mono-tabular font-semibold text-[#231F1D]">
                   <Star className="w-3.5 h-3.5 fill-[#B87D4B] text-[#B87D4B]" />
                   4.9 (541 Reviews)
@@ -238,29 +238,29 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
           </div>
 
           {/* Right Quick Restaurant Actions (Menu Photos, Video Tour, Call, Directions) */}
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 shrink-0 w-full lg:w-auto">
             <button
               onClick={onOpenVideoTour}
-              className="inline-flex items-center gap-2 px-3.5 py-2.5 text-xs font-semibold text-[#231F1D] bg-white hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors whitespace-nowrap shrink-0 shadow-2xs cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2.5 text-xs font-semibold text-[#231F1D] bg-white hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors whitespace-nowrap shrink-0 shadow-2xs cursor-pointer"
             >
-              <Play className="w-3.5 h-3.5 fill-[#5E7159] text-[#5E7159]" />
-              Poolside Photo & Tour
+              <Play className="w-3.5 h-3.5 fill-[#5E7159] text-[#5E7159] shrink-0" />
+              <span>Poolside Tour</span>
             </button>
             <button
               onClick={() => onOpenMenuBoard(0)}
-              className="inline-flex items-center gap-2 px-3.5 py-2.5 text-xs font-semibold text-[#5E7159] bg-[#EFF2EE] hover:bg-[#E3E7E1] border border-[#748470]/30 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2.5 text-xs font-semibold text-[#5E7159] bg-[#EFF2EE] hover:bg-[#E3E7E1] border border-[#748470]/30 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
-              <FileText className="w-3.5 h-3.5" />
-              Menu Boards (1–3)
+              <FileText className="w-3.5 h-3.5 shrink-0" />
+              <span>Menu Boards (1–3)</span>
             </button>
             <a
               href={VENUE_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2.5 text-xs font-medium text-[#231F1D] bg-white hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors whitespace-nowrap shrink-0"
+              className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 text-xs font-medium text-[#231F1D] bg-white hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors whitespace-nowrap shrink-0"
             >
-              <Navigation className="w-3.5 h-3.5 text-[#5E7159]" />
-              Directions
+              <Navigation className="w-3.5 h-3.5 text-[#5E7159] shrink-0" />
+              <span>Directions</span>
             </a>
           </div>
         </motion.div>
@@ -362,21 +362,21 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
                 </div>
 
                 {/* Primary & Secondary Conversion CTAs */}
-                <div className="pt-4 border-t border-[#E3E7E1] flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap items-center gap-3">
+                <div className="pt-4 border-t border-[#E3E7E1] flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-3 sm:gap-4">
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                     <button
                       onClick={handleHeroOrderClick}
-                      className="px-5 py-3 text-xs sm:text-sm font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors flex items-center gap-2 whitespace-nowrap shrink-0 shadow-xs"
+                      className="w-full sm:w-auto justify-center px-4 sm:px-5 py-3 text-xs sm:text-sm font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
                     >
                       {justAddedId === matchedMenuItem.id ? (
                         <>
-                          <Check className="w-4 h-4" />
+                          <Check className="w-4 h-4 shrink-0" />
                           <span>Added to Order Bag!</span>
                         </>
                       ) : (
                         <>
-                          <Plus className="w-4 h-4" />
-                          <span>
+                          <Plus className="w-4 h-4 shrink-0" />
+                          <span className="truncate">
                             Order {matchedMenuItem.name} · dh {matchedMenuItem.price.toFixed(2)}
                           </span>
                         </>
@@ -386,10 +386,10 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
                     <button
                       type="button"
                       onClick={onNavigateToFullMenu}
-                      className="px-4 py-3 text-xs sm:text-sm font-semibold text-[#231F1D] bg-[#FAF8F5] hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0"
+                      className="w-full sm:w-auto justify-center px-4 py-3 text-xs sm:text-sm font-semibold text-[#231F1D] bg-[#FAF8F5] hover:bg-[#EFF2EE] border border-[#E3E7E1] rounded-lg transition-colors inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 cursor-pointer"
                     >
                       <span>Open Full Menu Page (54 Items)</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                     </button>
                   </div>
 
@@ -432,7 +432,7 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.35 }}
-                className="relative h-88 sm:h-[420px] w-full bg-[#EFF2EE] overflow-hidden flex items-center justify-center"
+                className="relative h-72 sm:h-[420px] w-full bg-[#EFF2EE] overflow-hidden flex items-center justify-center"
               >
                 {currentSlide.visualType === 'coffee-sanctuary' && (
                   <div className="relative w-full h-full overflow-hidden">
@@ -605,22 +605,22 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
                 )}
 
                 {/* Floating Live Dish Price & Rating Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-[#E3E7E1] rounded-xl p-4 flex items-center justify-between gap-4 shadow-md">
-                  <div>
-                    <p className="text-[11px] font-medium text-[#5E7159]">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md border border-[#E3E7E1] rounded-xl p-3 sm:p-4 flex items-center justify-between gap-2.5 sm:gap-4 shadow-md">
+                  <div className="min-w-0">
+                    <p className="text-[10px] sm:text-[11px] font-medium text-[#5E7159] truncate">
                       Featured on Menu · {matchedMenuItem.category}
                     </p>
-                    <h3 className="text-base font-semibold text-[#231F1D]">
+                    <h3 className="text-sm sm:text-base font-semibold text-[#231F1D] truncate">
                       {matchedMenuItem.name}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-base font-mono-tabular font-semibold text-[#231F1D]">
+                  <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <span className="text-sm sm:text-base font-mono-tabular font-semibold text-[#231F1D]">
                       dh {matchedMenuItem.price.toFixed(2)}
                     </span>
                     <button
                       onClick={handleHeroOrderClick}
-                      className="px-3.5 py-2 text-xs font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                      className="px-3 sm:px-3.5 py-2 text-xs font-semibold text-white bg-[#5E7159] hover:bg-[#4D5E49] rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                     >
                       + Add
                     </button>
