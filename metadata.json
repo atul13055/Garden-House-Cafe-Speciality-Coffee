@@ -1,0 +1,6 @@
+{
+  "name": "Garden House Cafe — Speciality Coffee",
+  "description": "Official digital sanctuary, full interactive menu, and table reservation platform for Garden House Cafe at The Arc Tower, 5th Floor, Al Reem Island, Abu Dhabi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

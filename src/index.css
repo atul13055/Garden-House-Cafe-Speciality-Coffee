@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #FAF8F5;
+    --bg-surface: #FFFFFF;
+    --bg-sage-mist: #EFF2EE;
+    --text-primary: #231F1D;
+    --text-muted: #5C645A;
+    --accent-sage: #5E7159;
+    --accent-sage-light: #748470;
+    --accent-gold: #B87D4B;
+    --border-hairline: #E3E7E1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom subtle scrollbars for category navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 34s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Rising Aroma Steam Animation for Coffee, Tea, Croissants & Warm Brunch */
+@keyframes aromaSteamRise {
+  0% {
+    transform: translateY(6px) translateX(0px) scaleX(0.9);
+    opacity: 0;
+  }
+  35% {
+    transform: translateY(-8px) translateX(3px) scaleX(1.08);
+    opacity: 0.75;
+  }
+  70% {
+    transform: translateY(-22px) translateX(-3px) scaleX(0.95);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(-36px) translateX(2px) scaleX(1.12);
+    opacity: 0;
+  }
+}
+
+.animate-steam-1 {
+  animation: aromaSteamRise 3.2s ease-in-out infinite;
+}
+
+.animate-steam-2 {
+  animation: aromaSteamRise 3.6s ease-in-out 0.9s infinite;
+}
+
+.animate-steam-3 {
+  animation: aromaSteamRise 3.4s ease-in-out 1.8s infinite;
+}
+
+/* Poolside Water Caustic & Ripple Animations */
+@keyframes waterCausticShimmer {
+  0% {
+    transform: translateX(-4%) translateY(0px) scaleY(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(4%) translateY(-3px) scaleY(1.06);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(-4%) translateY(0px) scaleY(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes waterRippleExpand {
+  0% {
+    transform: scale(0.25);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.animate-water-caustic {
+  animation: waterCausticShimmer 4.8s ease-in-out infinite;
+}
+
+.animate-water-caustic-delayed {
+  animation: waterCausticShimmer 5.6s ease-in-out 1.5s infinite;
+}
+
+.animate-pool-ripple {
+  animation: waterRippleExpand 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+
