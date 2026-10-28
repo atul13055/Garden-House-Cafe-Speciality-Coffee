@@ -43,7 +43,7 @@ export const MenuBoardModal: React.FC<MenuBoardModalProps> = ({
             />
             <div>
               <p className="text-xs text-[#5C645A]">
-                Physical Menu Sheet {boardIndex + 1} of {PHYSICAL_MENU_BOARDS.length} · Provided by Talabat & Google Drive
+                Cafe Menu Sheet {boardIndex + 1} of {PHYSICAL_MENU_BOARDS.length} · Garden House Cafe
               </p>
               <h3 className="text-lg font-semibold text-[#231F1D]">{board.title}</h3>
             </div>

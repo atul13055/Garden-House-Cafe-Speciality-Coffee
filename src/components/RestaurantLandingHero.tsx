@@ -72,7 +72,7 @@ const HERO_SLIDES: HeroShowcaseSlide[] = [
       'Golden 27-layer French pastry baked fresh each morning, generously filled with roasted pistachio crema and smooth hazelnut chocolate.',
     tastingNotes: ['Flaky French Butter', 'Crushed Green Pistachios', 'Warm Hazelnut Drizzle'],
     prepTime: 'Served Warm',
-    pairingSuggestion: 'Rated #1 Must-Try by 94+ Google Reviewers',
+    pairingSuggestion: 'Rated #1 Must-Try by 94+ Cafe Guests',
     menuItemId: 'cr-pistachio-nutella-kinda',
     accentColor: '#B87D4B',
     visualType: 'pistachio-bakery',
@@ -225,7 +225,7 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
               <div className="flex flex-wrap items-center gap-2.5 text-xs text-[#5C645A] pt-0.5">
                 <span className="inline-flex items-center gap-1 font-mono-tabular font-semibold text-[#231F1D]">
                   <Star className="w-3.5 h-3.5 fill-[#B87D4B] text-[#B87D4B]" />
-                  4.9 (541 Google Reviews)
+                  4.9 (541 Reviews)
                 </span>
                 <span aria-hidden="true">·</span>
                 <span className="font-mono-tabular font-medium text-[#231F1D]">
@@ -441,7 +441,7 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
                       src={VENUE_INFO.storefrontPhotoPath}
                       alt="Garden House Cafe — Speciality Coffee Poolside Storefront at The Arc Tower 5th Floor"
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-top scale-[1.07] origin-top"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/15 pointer-events-none" />
                     {/* Interactive Poolside Water Caustic & Ripple Layer */}
@@ -632,7 +632,7 @@ export const RestaurantLandingHero: React.FC<RestaurantLandingHeroProps> = ({
             {/* Bottom Gallery & Menu Quick Strip inside Right Hero Card */}
             <div className="p-4 bg-[#FAF8F5] border-t border-[#E3E7E1] flex items-center justify-between gap-2 text-xs">
               <span className="text-[#5C645A]">
-                Physical Menu Boards (Google Drive / Talabat):
+                Printed Cafe Menu Boards:
               </span>
               <div className="flex items-center gap-1.5">
                 {[0, 1, 2].map((idx) => (

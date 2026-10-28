@@ -462,14 +462,14 @@ export const GalleryVisual: React.FC<GalleryVisualProps> = ({
   className = '',
 }) => {
   if (imageUrl || theme === 'poolside-oasis') {
-    const src = imageUrl || '/assets/aistudio/img_e4630e8e.jpg';
+    const src = imageUrl || '/assets/garden-house-storefront.jpg';
     return (
       <div className={`relative overflow-hidden bg-[#E9EDE7] ${className}`}>
         <img
           src={src}
           alt="Garden House Cafe — Speciality Coffee Poolside Storefront at The Arc Tower 5th Floor"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top scale-[1.07] origin-top"
         />
         <PoolsideWaterRippleOverlay heightClass="h-[32%]" />
       </div>

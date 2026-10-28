@@ -84,7 +84,7 @@ interface ReservationReceipt {
 
 const MARQUEE_HIGHLIGHTS = [
   'GARDEN HOUSE CAFE · جاردن هاوس كافيه',
-  '4.9 ★ GOOGLE RATED (541 REVIEWS)',
+  '4.9 ★ GUEST RATED (541 REVIEWS)',
   'THE ARC TOWER · 5TH FLOOR POOLSIDE SANCTUARY',
   'ICED PISTACHIO LATTE & ARTISAN V60',
   'FRESH 27-LAYER PISTACHIO & NUTELLA CROISSANTS',
@@ -645,7 +645,7 @@ export default function App() {
                   />
                   <div>
                     <p className="text-xs text-[#5E7159] font-medium">
-                      Complete Digital & Talabat Menu · All 18 Categories · {MENU_ITEMS.length} Items
+                      Complete Cafe Menu · All 18 Categories · {MENU_ITEMS.length} Items
                     </p>
                     <h1 className="text-3xl sm:text-4xl font-display font-semibold text-[#231F1D]">
                       Garden House Cafe — Full Menu
@@ -813,7 +813,7 @@ export default function App() {
               >
                 <div>
                   <p className="text-xs font-medium text-[#5E7159]">
-                    House Signatures · Provided by Talabat & Cafe Kitchen
+                    House Signatures · Freshly Crafted in Our Kitchen
                   </p>
                   <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#231F1D]">
                     At a Glance — Quick Cafe Favorites
@@ -1053,7 +1053,7 @@ export default function App() {
                   <p className="text-2xl font-mono-tabular font-semibold text-[#5E7159]">
                     <AnimatedCounter target={4.9} decimals={1} suffix=" ★" />
                   </p>
-                  <p className="text-xs text-[#5C645A] mt-0.5">Google Rating</p>
+                  <p className="text-xs text-[#5C645A] mt-0.5">Guest Rating</p>
                 </div>
                 <div>
                   <p className="text-2xl font-mono-tabular font-semibold text-[#231F1D]">
@@ -1092,7 +1092,7 @@ export default function App() {
                   src={VENUE_INFO.storefrontPhotoPath}
                   alt="Garden House Cafe — Speciality Coffee Poolside Storefront at The Arc Tower 5th Floor"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top scale-[1.07] origin-top transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Interactive Turquoise Poolside Water Caustic Ripple Overlay */}
                 <PoolsideWaterRippleOverlay heightClass="h-[36%]" />
@@ -1148,8 +1148,8 @@ export default function App() {
                   Complete A-to-Z Venue Amenities, Service Options & Accessibility
                 </h3>
                 <p className="text-xs text-[#5C645A] mt-1">
-                  Every verified facility detail from our Google Maps listing—from wheelchair access
-                  and poolside outdoor seating to NFC payments and kids’ high chairs.
+                  Every facility detail at The Arc Tower 5th Floor—from wheelchair access
+                  and poolside outdoor seating to contactless payments and kids’ high chairs.
                 </p>
               </div>
               <div className="relative w-full sm:w-64">
@@ -1210,10 +1210,10 @@ export default function App() {
           >
             <div className="space-y-1.5">
               <p className="text-xs text-[#5E7159] font-medium">
-                03. Verified Guest Proof & Live Crowd Telemetry
+                03. Guest Experiences & Visit Hours
               </p>
               <h2 className="text-3xl sm:text-4xl font-display font-semibold text-[#231F1D]">
-                Google Review Summary & Popular Times
+                Guest Review Summary & Popular Times
               </h2>
             </div>
             <button
@@ -1349,7 +1349,7 @@ export default function App() {
               {/* "About this place" Interactive Topic Filter Buttons */}
               <div className="space-y-3">
                 <p className="text-xs font-semibold text-[#231F1D]">
-                  Filter reviews by topic ("About this place"):
+                  Filter guest reviews by highlight:
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {REVIEW_TOPICS.map((topic) => {
@@ -1527,7 +1527,7 @@ export default function App() {
                 Photos & Video Highlights
               </h2>
               <p className="text-sm text-[#5C645A]">
-                Featuring Google contributor clips (0:17, 0:06, 0:08) and café photography from our
+                Explore poolside moments, specialty coffee pours, and morning pastries from our
                 5th-floor oasis.
               </p>
             </div>
@@ -1617,7 +1617,7 @@ export default function App() {
             >
               <div className="space-y-2">
                 <p className="text-xs text-[#5E7159] font-medium">
-                  05. Planning · Accepts Reservations
+                  05. Table Reservations & Visit Guide
                 </p>
                 <h2 className="text-3xl font-display font-semibold text-[#231F1D]">
                   Reserve a Poolside or Study Table
